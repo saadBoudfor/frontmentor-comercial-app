@@ -1,0 +1,37 @@
+<div class="cart">
+  <div class="header">
+    <h2>Cart</h2>
+  </div>
+
+  <div class="content">
+
+    <ng-container *ngIf="purchases && purchases.length !== 0">
+      <div class="purchases">
+        <div class="purchase" *ngFor="let purchase of purchases">
+          <img class="product-photo" src="assets/images/image-product-1-thumbnail.jpg" alt="product photo">
+          <div class="product-container">
+            <div class="product-details">
+              <div class="name">
+                {{purchase.product.name}}
+              </div>
+              <div class="quantity-container">
+                <span class="quantity">${{purchase.product.price.toFixed(2)}} x {{purchase.quantity}}</span>
+                <span class="total">${{(purchase.product.price * purchase.quantity).toFixed(2)}}</span>
+              </div>
+            </div>
+            <div class="action">
+              <span class="material-icons icon" (click)="delete(purchase.product.id)">delete</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="submit-cart">
+        <button>Checkout</button>
+      </div>
+    </ng-container>
+
+    <div *ngIf="!purchases || purchases.length === 0" class="empty-list">
+      Your cart is empty
+    </div>
+  </div>
+</div>

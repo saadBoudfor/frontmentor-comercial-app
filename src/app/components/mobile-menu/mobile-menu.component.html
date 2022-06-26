@@ -1,0 +1,13 @@
+<div class="component-container" (click)="clickToClose($event)">
+  <div class="menu-wrapper">
+    <img class="close" (click)="close.emit()" src="assets/images/icon-close.svg" alt="close menu">
+
+    <nav class="menu">
+      <span class="menu-item">Collections</span>
+      <span class="menu-item">Men</span>
+      <span class="menu-item">Women</span>
+      <span class="menu-item">About</span>
+      <span class="menu-item">Contact</span>
+    </nav>
+  </div>
+</div>

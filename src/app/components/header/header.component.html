@@ -1,0 +1,28 @@
+<header>
+  <div class="menu-container">
+    <img class="mobile-menu" (click)="showMenu = true" src="assets/images/icon-menu.svg" alt="menu button">
+    <img class="logo" src="../../../assets/images/logo.svg" alt="logo">
+    <nav class="menu">
+      <span class="menu-item">Collections</span>
+      <span class="menu-item">Men</span>
+      <span class="menu-item">Women</span>
+      <span class="menu-item">About</span>
+      <span class="menu-item">Contact</span>
+    </nav>
+  </div>
+
+  <div class="login-container">
+    <div class="cart-container">
+      <span class="badge" *ngIf="count">{{count}}</span>
+      <img class="cart"
+           (click)="showCart = !showCart"
+           (mouseenter)="showCart = true"
+           src="../../../assets/images/icon-cart.svg" alt="cart">
+      <app-cart *ngIf="showCart"></app-cart>
+    </div>
+    <img class="avatar" src="../../../assets/images/image-avatar.png" alt="avatar">
+  </div>
+
+</header>
+
+<app-mobile-menu *ngIf="showMenu" (close)="showMenu = false;"></app-mobile-menu>

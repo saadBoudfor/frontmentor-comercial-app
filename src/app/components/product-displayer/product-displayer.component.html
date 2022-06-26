@@ -1,0 +1,19 @@
+<img class="desktop selected-image" src="assets/images/{{selected.image}}" (click)="displayCarousel = true" alt="selected">
+
+<div class="mobile selected-image-container">
+  <div class="control previous" (click)="previous()"><img src="assets/images/icon-previous.svg" alt="previous image"></div>
+  <img class="mobile selected-image" src="assets/images/{{selected.image}}" alt="selected">
+  <div class="control next" (click)="next()"><img src="assets/images/icon-next.svg" alt="next image"></div>
+</div>
+
+<div class="thumbnail-list">
+  <ng-container *ngFor="let productImage of images">
+    <div class="thumbnail" [class.selected]="productImage.selected" (click)="selectImage(productImage)">
+      <div class="selected-thumbnail-mask">
+      </div>
+      <img src="assets/images/{{productImage.thumbnail}}" alt="thumbnail">
+    </div>
+  </ng-container>
+</div>
+
+<app-product-carousel *ngIf="displayCarousel" [images]="images" (close)="displayCarousel = false"></app-product-carousel>

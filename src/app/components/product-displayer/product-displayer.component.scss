@@ -1,0 +1,123 @@
+@import "../../../styles";
+
+.mobile {
+  display: none;
+}
+
+.desktop {
+  display: block;
+}
+
+.selected-image {
+  $selected-image-size: 400px;
+  width: $selected-image-size;
+  height: $selected-image-size;
+
+  border-radius: 7px;
+}
+
+.thumbnail-list {
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  .thumbnail {
+    $thumbnail-image: 80px;
+    width: $thumbnail-image;
+    height: $thumbnail-image;
+    position: relative;
+    cursor: pointer;
+
+    .selected-thumbnail-mask {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 7px;
+    }
+
+    border-radius: 7px;
+
+    &:hover {
+      .selected-thumbnail-mask {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #ffffff99;
+        border-radius: 7px;
+      }
+    }
+
+    &.selected {
+      .selected-thumbnail-mask {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #ffffff99;
+        border: 3px solid $accent-color;
+        border-radius: 7px;
+      }
+    }
+  }
+}
+
+:host {
+  display: block;
+  width: fit-content;
+}
+
+@media (max-width: 448px) {
+  .thumbnail-list {
+    display: none;
+  }
+
+
+  .selected-image-container {
+    position: relative;
+    .selected-image {
+      width: 100%;
+      border-radius: 0;
+    }
+
+    .control {
+      $control-size: 40px;
+      width: $control-size;
+      height: $control-size;
+      position: absolute;
+      top: 50%;
+
+      background-color: white;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+
+      &.next {
+        right: $control-size/2;
+      }
+
+      &.previous {
+        left: $control-size/2;
+      }
+    }
+
+
+  }
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+}

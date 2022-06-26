@@ -1,0 +1,135 @@
+@import "../../../styles";
+
+h2.brand {
+  color: $accent-color;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+h1.name {
+  color: hsl(220, 13%, 13%);
+  font-weight: 700;
+  margin: 0;
+}
+
+p.description {
+  color: #747474;
+  font-size: 14px;
+  margin: 25px 0 0;
+}
+
+.price-details {
+  .price-container {
+    margin-top: 25px;
+
+    .price {
+      font-size: 18px;
+      font-weight: 700;
+      color: hsl(220, 13%, 13%);
+      margin-right: 25px;
+    }
+
+    .discount {
+      color: $accent-color;
+      background-color: lighten($accent-color, 35);
+      padding: 4px 9px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    margin-bottom: 5px;
+
+  }
+
+  .old-price {
+    color: #747474;
+    text-decoration: line-through;
+    font-weight: 700;
+    font-size: 14px;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+
+  .submit {
+    background-color: $accent-color;
+    box-shadow: lighten($accent-color, 20) 0 7px 29px 0px;
+    border: none;
+    outline: none;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    padding: 12px 40px;
+    border-radius: 7px;
+    cursor: pointer;
+
+    .icon {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+
+  .quantity-container {
+    display: flex;
+    background-color: hsl(223, 64%, 98%);
+    padding: 10px 30px;
+    border-radius: 7px;
+    font-weight: 700;
+    width: 70px;
+    justify-content: space-between;
+    align-items: center;
+
+    .quantity {
+      color: hsl(220, 13%, 13%);
+    }
+
+    .increase, .decrease {
+      color: $accent-color;
+      cursor: pointer;
+      font-size: 18px;
+      user-select: none;
+
+      &:hover {
+        color: $secondary-color;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+:host {
+  display: block;
+  max-width: 350px;
+  padding: 20px;
+}
+
+
+@media (max-width: 448px) {
+  .price-details {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .action {
+    flex-direction: column;
+    .quantity-container {
+      width: initial;
+      margin-bottom: 15px;
+    }
+
+    button {
+      justify-content: center;
+    }
+  }
+}

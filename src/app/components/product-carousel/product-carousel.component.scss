@@ -1,0 +1,124 @@
+@import "src/styles";
+
+
+.component-container {
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: fit-content;
+  margin: 100px auto auto;
+
+  .close {
+    margin-bottom: 15px;
+    cursor: pointer;
+
+    img {
+      width: 24px;
+    }
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  .display {
+    position: relative;
+    width: fit-content;
+
+    .selected-image {
+      width: 500px;
+      border-radius: 15px;
+    }
+
+    .control {
+      //padding: 12px;
+      $control-size: 60px;
+      height: $control-size;
+      width: $control-size;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      background-color: white;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        color: $accent-color;
+      }
+
+      &.previous {
+        left: -1*$control-size/2;
+      }
+
+      &.next {
+        right: -1*$control-size/2;
+      }
+    }
+  }
+
+  .thumbnail-list {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-around;
+
+    .thumbnail {
+      $thumbnail-border-radius: 7px;
+      position: relative;
+      cursor: pointer;
+
+
+      &:hover {
+        .selected-thumbnail-mask {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background-color: #ffffff99;
+          border-radius: 7px;
+        }
+      }
+
+      &.selected {
+        .selected-thumbnail-mask {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background-color: #ffffff99;
+          border: 3px solid $accent-color;
+          border-radius: 7px;
+        }
+      }
+
+      width: 80px;
+      border-radius: $thumbnail-border-radius;
+
+
+      img {
+        width: 100%;
+        border-radius: $thumbnail-border-radius;
+      }
+
+    }
+
+  }
+
+}
